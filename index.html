@@ -1,0 +1,29 @@
+<head>
+  <meta charset="UTF-8">
+  <title>Slack</title>
+  <link rel="icon" type="image/png" href="https://a.slack-edge.com/e6a93c1/img/icons/favicon-32.png">
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      background: #1a1d21;
+      color: #fff;
+    }
+    a {
+      color: #36c5f0;
+      text-decoration: none;
+    }
+    a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <p>Opening Slack… <a href="slack://open">Click here</a> if nothing happened.</p>
+  <script>
+    window.location.href = "slack://open";
+  </script>
+</body>
+</html>
