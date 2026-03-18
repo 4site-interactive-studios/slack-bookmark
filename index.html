@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <title>Slack</title>
@@ -12,6 +14,7 @@
       margin: 0;
       background: #1a1d21;
       color: #fff;
+      cursor: pointer;
     }
     a {
       color: #36c5f0;
@@ -23,7 +26,33 @@
 <body>
   <p>Opening Slack… <a href="slack://open">Click here</a> if nothing happened.</p>
   <script>
-    window.location.href = "slack://open";
+    function launch() {
+      window.location.href = "slack://open";
+      setTimeout(function () {
+        window.open("", "_self");
+        window.close();
+      }, 500);
+    }
+
+    // On load
+    launch();
+
+    // Tab/window gets focus
+    window.addEventListener("focus", launch);
+    document.addEventListener("visibilitychange", function () {
+      if (document.visibilityState === "visible") launch();
+    });
+
+    // Any mouse activity
+    document.addEventListener("mouseover", launch);
+    document.addEventListener("mousemove", launch);
+    document.addEventListener("click", launch);
+
+    // Keyboard
+    document.addEventListener("keydown", launch);
+
+    // Touch
+    document.addEventListener("touchstart", launch);
   </script>
 </body>
 </html>
